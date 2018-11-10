@@ -2,6 +2,7 @@ import sys, os
 import pandas as pd
 import matplotlib.pyplot as plt
 import difflib
+from interruptingcow import timeout
 
 directory = sys.argv[1]
 
@@ -16,9 +17,10 @@ for filename in filenames:
     if filename.endswith(".py"):
         try:
             with open(''.join([directory,filename])) as file:
-                exec(file.read())
-                plt.show()
-                plt.close()
+                with timeout(120, exception=RuntimeError):
+                    exec(file.read())
+                    plt.show()
+                    plt.close()                  
         except Exception as e:
             print('There was an error: ' + str(e))
             err = str(e)
