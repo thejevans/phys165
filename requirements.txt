@@ -1,11 +1,6 @@
-sys
-os
-itertools
-random
 matplotlib
 pandas
 numpy
 scipy
-difflib
 interruptingcow
 IPython
