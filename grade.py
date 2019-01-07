@@ -7,14 +7,6 @@ import nbformat
 from nbconvert import PythonExporter
 import timeit
 
-
-
-#Your statements here
-
-
-
-print('Time: ', stop - start)
-
 # function to convert a jupyter notebook to a python file
 def convertNotebook(notebookPath, modulePath):
     
